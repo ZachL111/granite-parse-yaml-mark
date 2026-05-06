@@ -63,3 +63,9 @@ ruby -Ilib tests/test_policy.rb
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-granite-parse-yaml-detail.ps1
 
 ruby -Ilib tests/test_domain_review.rb
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-granite-parse-yaml-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-granite-parse-yaml-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
